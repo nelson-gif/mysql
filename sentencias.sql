@@ -40,6 +40,27 @@ CREATE TABLE usuarios(
     fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+/*seteamos valores random para ventas usando una funcion*/
+DELIMITER //
+
+CREATE FUNCTION randomSales()
+RETURNS INT
+BEGIN
+    RETURN ROUND( RAND() * 100) * 10;
+END//
+
+CREATE FUNCTION randomPages()
+RETURNS INT
+BEGIN
+    RETURN ROUND( RAND() *100 ) * 100;
+END//
+
+DELIMITER ;
+
+UPDATE libros SET ventas = randomSales();
+UPDATE libros SET paginas = randomPages();
+
+
 
 /*insertar en autores table*/
 INSERT INTO autores (nombre, apellido, seudonimo, fecha_nacimiento, genero, pais_origen )
