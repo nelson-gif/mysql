@@ -25,3 +25,9 @@ VALUES  (7, 'nombre1', 'F', '2021-02-23', 'Mexico'),
 
 SELECT * FROM autores;
 
+/*que se muestre en una sola columna las dos sentencias*/
+SELECT CONCAT (nombre, ' ', apellido) AS nombre_completo, '' AS email FROM autores 
+UNION
+SELECT CONCAT (nombre, ' ', apellidos) AS nombre_completo, email FROM usuarios;
+
+SELECT * FROM libros WHERE titulo IN ('Ojos de fuego', 'cujo', 'Carrie', 'El misterio de salmes lot', 'El hobbit', 'Harry Potter y la piedra Filosofal');
